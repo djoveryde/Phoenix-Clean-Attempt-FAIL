@@ -96,7 +96,6 @@ dependencies {
         compile 'java3d:vecmath:1.5.2'
         compile 'net.sf.trove4j:trove4j:3.0.3'
     }
-}
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
