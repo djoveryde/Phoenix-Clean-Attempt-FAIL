@@ -111,7 +111,7 @@ launch4j {
     outfile = file("build/distributions/${project.name}-${project.version}-installer-win.exe").canonicalPath
     icon = file('icon.ico').canonicalPath
     manifest = file('l4jManifest.xml').canonicalPath
-    jreMinVersion = '1.8.0'
+    jreMinVersion = '1.6.0'
     initialHeapPercent = 5;
     maxHeapPercent = 100;
 }
