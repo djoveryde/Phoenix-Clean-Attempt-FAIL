@@ -12,7 +12,7 @@ cache:
   - "$HOME/.gradle/wrapper/"
   - "$HOME/build/distributions/"
   - "$HOME/release/"
-script: "./travii/make.sh"
+//script: "./travii/make.sh"
 deploy:
   provider: releases
   file_glob: true
