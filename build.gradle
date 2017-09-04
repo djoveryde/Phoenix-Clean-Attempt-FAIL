@@ -54,6 +54,9 @@ tasks.withType(JavaCompile) {
 
 minecraft {
     version = "1.11.2"
+    mcpVersion = '9.37'
+    mainClass = 'net.minecraftforge.fml.relauncher.ServerLaunchWrapper'
+    tweakClass = 'net.minecraftforge.fml.common.launcher.FMLTweaker'
     mappings = 'snapshot_nodoc_20170612'
     workspaceDir = "projects"
     versionJson = "jsons/1.11.2-dev.json"
