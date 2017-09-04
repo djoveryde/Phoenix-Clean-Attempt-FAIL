@@ -25,6 +25,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'net.minecraftforge.gradle.patcher'
 apply plugin: 'net.minecraftforge.gradle.launch4j'
+apply plugin: 'net.minecraft.client'
 apply plugin: 'maven'
 
 group = 'djoveryde.phoenix'
