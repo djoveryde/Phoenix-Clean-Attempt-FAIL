@@ -55,8 +55,6 @@ tasks.withType(JavaCompile) {
 minecraft {
     version = "1.11.2"
     mcpVersion = '9.37'
-    mainClass = 'net.minecraftforge.fml.relauncher.ServerLaunchWrapper'
-    tweakClass = 'net.minecraftforge.fml.common.launcher.FMLTweaker'
     mappings = 'snapshot_nodoc_20170612'
     workspaceDir = "projects"
     versionJson = "jsons/1.11.2-dev.json"
@@ -67,10 +65,10 @@ minecraft {
     def common = {
         patchPrefixOriginal "../src-base/minecraft"
         patchPrefixChanged "../src-work/minecraft"
-        mainClassClient "net.minecraft.launchwrapper.Launch"
-        tweakClassClient "net.minecraftforge.fml.common.launcher.FMLTweaker"
-        mainClassServer "net.minecraft.launchwrapper.Launch"
-        tweakClassServer "net.minecraftforge.fml.common.launcher.FMLServerTweaker"
+//        mainClassClient "net.minecraft.launchwrapper.Launch"
+//        tweakClassClient "net.minecraftforge.fml.common.launcher.FMLTweaker"
+        mainClassServer "net.minecraftforge.fml.relauncher.ServerLaunchWrapper"
+        tweakClassServer "net.minecraftforge.fml.common.launcher.FMLTweaker"
     }
 
     projects {
