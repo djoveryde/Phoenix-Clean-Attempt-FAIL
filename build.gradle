@@ -16,8 +16,8 @@ buildscript {
     }
     dependencies {
 		classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
-		files('SForgeGradle-2.2-SNAPSHOT.jar')
-		'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+//		files('SForgeGradle-2.2-SNAPSHOT.jar')
+//		'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
 //		classpath files('FGS.jar')
 	}
 }
@@ -25,7 +25,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'net.minecraftforge.gradle.patcher'
 apply plugin: 'net.minecraftforge.gradle.launch4j'
-apply plugin: 'maven'
 
 group = 'djoveryde.phoenix'
 version = '0.0.1'
@@ -41,11 +40,11 @@ version = '0.0.1'
 //}
 
 dependencies {
-        compile 'org.apache.commons:commons-lang3:3.5'
+	compile 'commons-lang:commons-lang:2.6'
 	compile 'org.avaje:ebean:2.8.1'
 	compile 'com.googlecode.json-simple:json-simple:1.1'
 	compile 'org.yaml:snakeyaml:1.15'
-	compile 'com.google.guava:guava:21.0'
+	compile 'com.google.guava:guava:17.0'
     }
 
 tasks.withType(JavaCompile) {
@@ -54,21 +53,20 @@ tasks.withType(JavaCompile) {
 
 minecraft {
     version = "1.11.2"
-    mcpVersion = '9.37'
     mappings = 'snapshot_nodoc_20170612'
     workspaceDir = "projects"
     versionJson = "jsons/1.11.2-dev.json"
     buildUserdev = true
     buildInstaller = true
-	installerVersion = '1.5'
+    installerVersion = '1.5'
 
     def common = {
         patchPrefixOriginal "../src-base/minecraft"
         patchPrefixChanged "../src-work/minecraft"
-//        mainClassClient "net.minecraft.launchwrapper.Launch"
-//        tweakClassClient "net.minecraftforge.fml.common.launcher.FMLTweaker"
-        mainClassServer "net.minecraftforge.fml.relauncher.ServerLaunchWrapper"
-        tweakClassServer "net.minecraftforge.fml.common.launcher.FMLTweaker"
+        mainClassClient "net.minecraft.launchwrapper.Launch"
+        tweakClassClient "net.minecraftforge.fml.common.launcher.FMLTweaker"
+        mainClassServer "net.minecraft.launchwrapper.Launch"
+        tweakClassServer "net.minecraftforge.fml.common.launcher.FMLServerTweaker"
     }
 
     projects {
@@ -111,7 +109,7 @@ launch4j {
     outfile = file("build/distributions/${project.name}-${project.version}-installer-win.exe").canonicalPath
     icon = file('icon.ico').canonicalPath
     manifest = file('l4jManifest.xml').canonicalPath
-    jreMinVersion = '1.6.0'
+    jreMinVersion = '1.8.0'
     initialHeapPercent = 5;
     maxHeapPercent = 100;
 }
